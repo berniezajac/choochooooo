@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[xyz] Coding Test / Puzzle - by Bernie Zajac</title>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Instructions</h3>
+
+        <p>Please select your source graph data file using the file selector below. Please ensure it's in the format as specified in the original problem statement, as per the below. Although I'm sure you'll have your own data sets too ;)</p>
+        <pre><code>AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7</code></pre>
+
+        <p>Processing of outputs commences as soon as a file is selected. The output can be see in the console within the Dev Tools window as well as within the text area below. If you wish to try another file either reload the page and follow the process again or just use the file selector to pick another file.</p>
+
+        <h5>Sample graph data file</h5>
+
+        <p>You can find the sample graph data file within <code>test/input_graph.txt</code></p>
+
+        <form enctype="multipart/form-data">
+            <label for="exampleEmailInput">Select graph data file:</label>
+            <div class="row u-full-width" style="padding: 15px 15px 5px 10px; border: 1px solid #E1E1E1; background-color: #F1F1F1; color: #000;">
+                <input type="file" id="graphdata" />
+            </div>
+
+            <br/>
+
+            <label for="consoleOutput">Console output:</label>
+            <textarea class="u-full-width" placeholder="Output will display here as soon as you select a valid file!" id="consoleOutput" style="height:400px; font-family: 'Courier New', monospace; font-size: 16px;" readonly="readonly"></textarea>
+        </form>
+
+        <h5>Output from `npm run test` to show Mocha/Chai Unit Test execution.</h5>
+
+        <p>Just in case something doesn't quite install correctly...</p>
+
+        <pre><code>MacPro:choochooooo bernie$ npm run coverage
+
+> choochooooo@0.0.1 coverage /Users/bernie/Desktop/Work/choochooooo
+> babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- test/*.js
+
+
+
+  Digraph
+    constructor
+      ✓ returns an instance of the class
+    data structure
+      ✓ should have an empty adjacencyList when initially instantiated
+      ✓ getNode() should return false for non-existant nodes
+      ✓ should be able to add a single unlinked node with addNode() and retrieve it with getNode()
+      ✓ should be able to only add node once
+      ✓ should be able to only support uppercase letters within addNode() and addEdge()
+      ✓ should be able to only support positive integer distances within addEdge()
+      ✓ should be able to addEdge() to add a directed edge between existing nodes A->B with distance X
+      ✓ should be able to add two nodes and an edge and use nodeHasEdge() to determine there is an edge
+      ✓ should be able to addEdge() and for non-existing nodes and have them implicitly added
+      ✓ should be able to addEdge() multiple times and use getAllNodes() to get the adjacencyList
+      ✓ should not add multiple edges between the same origin and destination
+
+  Utils
+    #getRouteDistance()
+      ✓ should return a zero (0) distance if called with no nodes
+      ✓ should return a zero (0) distance if called with only one node
+      ✓ should be able to calculate distance between 2 or more nodes
+      ✓ should throw an exception when calculating distances between invalid (non-existent) nodes
+      ✓ should throw an exception when calculating distances between nodes where no path exists
+    #findAllPaths()
+      ✓ should correctly find all paths with a maximum stops value
+      ✓ should correctly find all paths with an exact stops value
+      ✓ should return an empty path if no path with exact stops can be found
+      ✓ should throw exception if either of the nodes are invalid
+      ✓ should correctly find all paths with a total distance smaller than a particular value
+      ✓ should return an empty path if no path can be found with total distance smaller than a particular value
+    #findShortestPath()
+      ✓ should correctly return object with both shortest path and corresponding distance
+      ✓ should return false if not path is found
+      ✓ should throw exception if either of the nodes are invalid
+    #findShortestPathDistance()
+      ✓ should correctly return shortest path distance
+      ✓ should return false if not path is found
+      ✓ should throw exception if either of the nodes are invalid
+    #parseGraphData()
+      ✓ should correctly convert a raw string with valid graph data into node components
+      ✓ should correctly convert a raw string with MIXED valid/invalid graph data and whitespace into node components
+
+
+  31 passing (73ms)
+
+=============================================================================
+Writing coverage object [/Users/bernie/Desktop/Work/choochooooo/coverage/coverage.json]
+Writing coverage reports at [/Users/bernie/Desktop/Work/choochooooo/coverage]
+=============================================================================
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 112/112 )
+Branches     : 95.89% ( 70/73 )
+Functions    : 100% ( 32/32 )
+Lines        : 100% ( 102/102 )
+================================================================================</code></pre>
+    </div>
+
+    <script src="/public/assets/bundle.js"></script>
+</body>
+</html>

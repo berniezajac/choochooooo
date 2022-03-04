@@ -1,0 +1,29 @@
+{
+  "name": "choochooooo",
+  "version": "0.0.1",
+  "description": "Solution to the [xyz] coding test",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha --require babel-polyfill --compilers js:babel-register",
+    "coverage": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- test/*.js",
+    "start": "npm run dev",
+    "dev": "webpack-dev-server --config webpack.config.js --host 127.0.0.1 --port 3000 --content-base public --inline"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-istanbul": "^0.12.2",
+    "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-register": "^6.24.1",
+    "chai": "^4.0.0",
+    "cross-env": "^5.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
