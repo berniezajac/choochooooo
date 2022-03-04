@@ -26,6 +26,63 @@ This'll build the bundle JS via WebPack and also spin up a WebPack dev server - 
 
 There should be 31 passing tests ;)
 
+#### Evidence :)
+
+Output from `npm run test` to show Mocha/Chai Unit Test execution.
+
+```
+MacPro:choochooooo bernie$ npm run coverage
+
+> choochooooo@0.0.1 coverage /Users/bernie/Desktop/Work/choochooooo
+> babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- test/*.js
+
+  Digraph
+    constructor
+      ✓ returns an instance of the class
+    data structure
+      ✓ should have an empty adjacencyList when initially instantiated
+      ✓ getNode() should return false for non-existant nodes
+      ✓ should be able to add a single unlinked node with addNode() and retrieve it with getNode()
+      ✓ should be able to only add node once
+      ✓ should be able to only support uppercase letters within addNode() and addEdge()
+      ✓ should be able to only support positive integer distances within addEdge()
+      ✓ should be able to addEdge() to add a directed edge between existing nodes A->B with distance X
+      ✓ should be able to add two nodes and an edge and use nodeHasEdge() to determine there is an edge
+      ✓ should be able to addEdge() and for non-existing nodes and have them implicitly added
+      ✓ should be able to addEdge() multiple times and use getAllNodes() to get the adjacencyList
+      ✓ should not add multiple edges between the same origin and destination
+
+  Utils
+    #getRouteDistance()
+      ✓ should return a zero (0) distance if called with no nodes
+      ✓ should return a zero (0) distance if called with only one node
+      ✓ should be able to calculate distance between 2 or more nodes
+      ✓ should throw an exception when calculating distances between invalid (non-existent) nodes
+      ✓ should throw an exception when calculating distances between nodes where no path exists
+    #findAllPaths()
+      ✓ should correctly find all paths with a maximum stops value
+      ✓ should correctly find all paths with an exact stops value
+      ✓ should return an empty path if no path with exact stops can be found
+      ✓ should throw exception if either of the nodes are invalid
+      ✓ should correctly find all paths with a total distance smaller than a particular value
+      ✓ should return an empty path if no path can be found with total distance smaller than a particular value
+    #findShortestPath()
+      ✓ should correctly return object with both shortest path and corresponding distance
+      ✓ should return false if not path is found
+      ✓ should throw exception if either of the nodes are invalid
+    #findShortestPathDistance()
+      ✓ should correctly return shortest path distance
+      ✓ should return false if not path is found
+      ✓ should throw exception if either of the nodes are invalid
+    #parseGraphData()
+      ✓ should correctly convert a raw string with valid graph data into node components
+      ✓ should correctly convert a raw string with MIXED valid/invalid graph data and whitespace into node components
+
+
+  31 passing (20ms)
+
+```
+
 ### Test with Istanbul code coverage
 
 `npm run coverage`
