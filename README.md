@@ -2,6 +2,57 @@
 
 This repo contains a solution to the [xyz] train puzzle / coding test - done in 2017. Implemented within ES6 JavaScript and glued together with Babel (for transpiling) and WebPack (for building the JS bundle and providing a development server).
 
+## Overview
+
+For a given directional graph, run 10 "tests" as per below:
+
+* Test 1: Get Route Distance from A -> B -> C
+* Test 2: Get Route Distance from A -> D
+* Test 3: Get Route Distance from A -> D -> C
+* Test 4: Get Route Distance from A -> E -> B -> C -> D
+* Test 5: Get Route Distance from A -> E -> D
+* Test 6: Find number of paths between D and C with a maximum of 3 stops
+* Test 7: Find number of paths between A and C with exactly 4 stops
+* Test 8: Find shortest path distance between A -> C
+* Test 9: Find shortest path distance between B -> B
+* Test 10: Find number of paths between C -> C with a maximum for 30 stops
+
+### Digraph format:
+
+The directional graph is represented as two letters and a number. The first letter represents node A, the second represents node B and the number reprsents the distance between the two nodes. For example:
+
+AB3, BC4, BA10
+
+```
+[A]---3--→[B]----4----→[C]
+ ↑         |
+ |         |
+ +----10---+
+```
+
+### Example Digraph and Results
+
+You can find the sample graph data file within `test/input_graph.txt`. Its contents is:
+
+```
+AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
+```
+
+The output of the tests above for this digraph is:
+```
+Output #1: 9
+Output #2: 5
+Output #3: 13
+Output #4: 22
+Output #5: NO SUCH ROUTE
+Output #6: 2
+Output #7: 3
+Output #8: 9
+Output #9: 9
+Output #10: 7
+```
+
+
 ## How to get started
 
 1. Install node and npm (tested with NodeJS v7.4.0 and Npm 4.0.5)
